@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Triển lãm Em học tiếng Việt</title>
+<meta name="robots" content="noimageindex, noarchive, noai, noimageai">
+<meta name="description" content="Triển lãm Em học tiếng Việt – những trang vở và giọng đọc của các em học tiếng Việt tại Canada. Trường Tiếng Việt Của Em, CVCEC.">
+<link rel="icon" href="anh/trau-con.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap&subset=vietnamese" rel="stylesheet">
+<style>
+:root{--be:#F4F0EA;--ch:#3A3B3C;--straw:#DDAA55;--wood:#C68B59;--wood-d:#9E683C;--mute:#7a6a58;--green:#DCE8D2;--green-d:#4E6B3E;--peach:#F6D9CC}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--ch);background:var(--be);line-height:1.6;-webkit-font-smoothing:antialiased}
+.en{color:var(--mute)}
+button{font:inherit}
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1200px;margin:0 auto;padding:14px 20px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;border-radius:14px}
+.logo .logo-trau{width:64px;height:auto;flex:none}
+.logo .logo-chu{height:68px;width:auto;display:block}
+.logo:focus-visible{outline:3px solid var(--straw);outline-offset:4px}
+.tag{font-size:13px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--wood-d);background:#fbefd9;border:2px solid var(--straw);border-radius:999px;padding:6px 12px;white-space:nowrap}
+.hero{text-align:center;padding:20px 20px 6px}
+.kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--wood-d);background:#fff8ec;border:1px solid #ecd9b8;border-radius:999px;padding:4px 14px}
+h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;margin:12px 0 2px;line-height:1.12}
+.h1-en{font-size:clamp(17px,2.3vw,21px);font-weight:600;color:var(--mute);margin:0}
+.intro{max-width:680px;margin:16px auto 0;font-size:17px}
+.intro .en{display:block;font-size:15px;margin-top:4px}
+.roomnav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:980px;margin:22px auto 0;padding:0 16px}
+.roomnav a{border:1.5px solid #e2cfae;background:#fffdf9;color:var(--ch);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14.5px;text-decoration:none}
+.roomnav a:hover{background:#fbefd9}
+.roomnav a.tape{background:var(--ch);color:#fff;border-color:var(--ch)}
+.roomnav a:focus-visible{outline:3px solid var(--straw);outline-offset:2px}
+
+/* ---------- Phòng nghe: máy cát-xét ---------- */
+.listen{max-width:1100px;margin:38px auto 0;padding:0 16px}
+.listen-head{text-align:center;max-width:720px;margin:0 auto}
+.listen-head .room-no{font-size:13px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--wood-d)}
+.listen-head h2{margin:2px 0 0;font-size:clamp(24px,3.6vw,34px);font-weight:800;line-height:1.2}
+.listen-head .h2-en{margin:0;color:var(--mute);font-weight:600;font-size:17px}
+.listen-head p.desc{margin:8px 0 0;font-size:16px}
+.listen-head p.desc .en{display:block;font-size:14.5px}
+
+.deck{position:relative;margin:22px auto 0;max-width:820px;background:linear-gradient(#4a4b4d,#2f3031);border-radius:28px;padding:18px 18px 20px;box-shadow:0 22px 40px -18px rgba(30,20,10,.6),inset 0 2px 0 rgba(255,255,255,.12)}
+.deck-handle{position:absolute;left:50%;top:-22px;transform:translateX(-50%);width:46%;height:30px;border:7px solid #3d3e40;border-bottom:0;border-radius:18px 18px 0 0}
+.deck-top{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#e9dcc6;padding:0 8px 10px}
+.deck-brand{font-weight:900;letter-spacing:2px;font-size:13px;text-transform:uppercase;opacity:.85}
+.deck-brand b{color:var(--straw)}
+.led{width:10px;height:10px;border-radius:50%;background:#5b3a2a;box-shadow:inset 0 0 2px rgba(0,0,0,.6)}
+.deck.playing .led{background:#ff6b4a;box-shadow:0 0 8px #ff6b4a}
+.deck-body{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:16px;align-items:center}
+.speaker{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#1d1e1f 30%,transparent 31%) 0 0/10px 10px,radial-gradient(circle at 50% 50%,#3a3b3d,#232425);border:6px solid #1f2021;box-shadow:inset 0 0 0 3px #555,0 2px 0 rgba(255,255,255,.08)}
+.deck.playing .speaker{animation:thump .5s ease-in-out infinite alternate}
+@keyframes thump{from{transform:scale(1)}to{transform:scale(1.025)}}
+.bay{background:#1b1c1d;border-radius:14px;padding:12px;box-shadow:inset 0 3px 8px rgba(0,0,0,.6)}
+.bay svg{display:block;width:100%;height:auto}
+.lcd{margin-top:12px;background:#b9c9a5;color:#253018;border-radius:8px;padding:6px 12px;font-weight:800;font-size:14px;display:flex;justify-content:space-between;gap:10px;box-shadow:inset 0 2px 4px rgba(0,0,0,.35);font-variant-numeric:tabular-nums}
+.lcd span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.lcd span:last-child{white-space:nowrap;flex:none}
+.keys{display:flex;justify-content:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.key{min-width:58px;height:46px;border:0;border-radius:8px;background:linear-gradient(#ececec,#c9c9c9);color:#2b2b2b;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 12px;cursor:pointer;box-shadow:0 4px 0 #8d8d8d,0 5px 8px rgba(0,0,0,.4);transition:transform .08s,box-shadow .08s}
+.key:active,.key[aria-pressed="true"]{transform:translateY(3px);box-shadow:0 1px 0 #8d8d8d,0 2px 4px rgba(0,0,0,.4)}
+.key.play{background:linear-gradient(#f0c46e,#d79c3f);box-shadow:0 4px 0 #9a6a22,0 5px 8px rgba(0,0,0,.4)}
+.key.play:active,.key.play[aria-pressed="true"]{box-shadow:0 1px 0 #9a6a22,0 2px 4px rgba(0,0,0,.4)}
+.key.all{background:linear-gradient(#e7b38a,#c68b59);color:#fff;box-shadow:0 4px 0 #7f5531,0 5px 8px rgba(0,0,0,.4)}
+.key.all[aria-pressed="true"]{box-shadow:0 1px 0 #7f5531,0 2px 4px rgba(0,0,0,.4)}
+.key svg{width:16px;height:16px}
+.key:focus-visible{outline:3px solid var(--straw);outline-offset:3px}
+
+.shelf{margin:30px auto 0;max-width:1100px}
+.shelf h3{text-align:center;margin:0 0 4px;font-size:18px;font-weight:800}
+.shelf h3 .en{font-weight:600}
+.shelf-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:22px 18px;padding:18px 14px 26px;background:linear-gradient(#efe9df,#e9e0d1);border-radius:16px 16px 0 0;border:1px solid #e2d8c8;border-bottom:0}
+.shelf-board{height:16px;background:linear-gradient(#c68b59,#9e683c);border-radius:0 0 10px 10px;box-shadow:0 8px 14px -8px rgba(60,38,18,.6)}
+.tape-btn{border:0;background:none;padding:0;cursor:pointer;text-align:center;color:var(--ch);transition:transform .2s ease}
+.tape-btn:hover{transform:translateY(-4px) rotate(-1deg)}
+.tape-btn:focus-visible{outline:3px solid var(--straw);outline-offset:4px;border-radius:12px}
+.tape-btn svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 6px rgba(60,38,18,.28))}
+.tape-btn .cap{display:block;font-size:12.5px;color:var(--mute);margin-top:6px;font-weight:700}
+.tape-btn.loaded{opacity:.45}
+.tape-btn.loaded .cap{color:var(--wood-d)}
+.reel{transform-box:fill-box;transform-origin:center;animation:spin 1.8s linear infinite;animation-play-state:paused}
+.spinning .reel{animation-play-state:running}
+@keyframes spin{to{transform:rotate(-360deg)}}
+
+/* ---------- Gian triển lãm ---------- */
+section.room{margin-top:52px;scroll-margin-top:10px}
+.room-head{max-width:900px;margin:0 auto;padding:0 20px;text-align:center}
+.room-no{font-size:13px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--wood-d)}
+.room-head h2{font-size:clamp(24px,3.6vw,34px);font-weight:800;margin:2px 0 0;line-height:1.2}
+.room-head .h2-en{margin:0;font-weight:600;color:var(--mute);font-size:17px}
+.room-head p.desc{margin:8px auto 0;max-width:680px;font-size:16px}
+.room-head p.desc .en{display:block;font-size:14.5px}
+.wall{position:relative;overflow:hidden;margin-top:18px;background:radial-gradient(1200px 360px at 50% -40px,rgba(255,247,226,.9),rgba(255,247,226,0) 70%),linear-gradient(#efe9df,#ebe3d6);border-top:1px solid #e2d8c8}
+.rail{height:12px;background:linear-gradient(#d29a66,#b47a48);box-shadow:0 2px 3px rgba(80,50,20,.25)}
+.gallery{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:40px 54px;padding:0 16px 54px;max-width:1240px;margin:0 auto}
+.piece{position:relative;display:flex;flex-direction:column;align-items:center;padding-top:52px;width:var(--w,340px);max-width:100%}
+.wire{position:absolute;top:0;left:0;width:100%;height:58px;pointer-events:none}
+.spot{position:absolute;top:0;left:50%;width:150%;height:110%;transform:translateX(-50%);background:radial-gradient(closest-side at 50% 34%,rgba(255,244,214,.7),rgba(255,244,214,0));pointer-events:none}
+.frame-btn{position:relative;display:block;border:0;padding:0;background:none;cursor:zoom-in;width:100%;border-radius:2px;box-shadow:0 16px 26px -12px rgba(60,38,18,.45),0 4px 8px rgba(60,38,18,.16);transition:transform .25s ease}
+.frame-btn:hover{transform:translateY(-3px)}
+.frame-btn:focus-visible{outline:3px solid var(--straw);outline-offset:6px}
+.frame-btn img{display:block;width:100%;height:auto}
+.label{position:relative;margin-top:20px;background:#fffdf9;border:1px solid #e8dfd1;border-radius:6px;padding:12px 15px 13px;width:min(320px,100%);box-shadow:0 2px 4px rgba(60,38,18,.08)}
+.label h3{margin:0;font-size:19px;font-weight:800;line-height:1.25}
+.label .t-en{margin:0 0 6px;color:var(--mute);font-weight:600;font-size:14px;font-style:italic}
+.label .when{margin:0;font-size:14px;color:var(--mute)}
+.vans{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0}
+.van-chip{font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:#fbefd9;color:#7b5520;border:1px solid #efd8ae}
+.label-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14.5px;color:#fff;background:var(--wood);border:0;border-radius:999px;padding:8px 15px;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--wood-d)}
+.btn.ghost{background:#fffdf9;color:var(--wood-d);border:1.5px solid #e2cfae}
+.btn.ghost:hover{background:#fbefd9}
+.btn:focus-visible{outline:3px solid var(--straw);outline-offset:3px}
+.btn svg{width:15px;height:15px;flex:none}
+.base{height:18px;background:linear-gradient(#8c5e37,#6e4828);border-top:3px solid #b07a4b}
+
+.note{max-width:740px;margin:44px auto 0;padding:0 20px;text-align:center;font-size:15.5px}
+footer{text-align:center;padding:30px 20px 44px;font-size:14px;color:#6b5d4f}
+footer .org{font-weight:800;color:var(--ch)}
+.copy{margin-top:14px;font-size:11.5px;color:rgba(58,59,60,.4)}
+
+.lb{position:fixed;inset:0;z-index:50;background:rgba(36,28,20,.84);display:none;align-items:center;justify-content:center;padding:16px}
+.lb.open{display:flex}
+.lb-card{background:var(--be);border-radius:14px;max-width:1140px;width:100%;max-height:calc(100vh - 32px);overflow:auto;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.lb-img{background:#fff;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border-radius:14px 0 0 14px;overflow:hidden}
+.lb-img img{max-width:100%;max-height:calc(100vh - 110px);height:auto;display:block;cursor:zoom-in;transition:transform .3s ease;transform-origin:var(--ox,50%) var(--oy,50%)}
+.lb-img img.zoom{transform:scale(2.1);cursor:zoom-out}
+.pager{display:flex;gap:8px}
+.pager button{border:1.5px solid #e2cfae;background:#fffdf9;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13.5px;cursor:pointer;color:var(--ch)}
+.pager button[aria-pressed="true"]{background:var(--wood);color:#fff;border-color:var(--wood)}
+.lb-side{padding:22px 22px 24px;position:relative}
+.lb-side h3{margin:0;font-size:24px;font-weight:800;padding-right:44px;line-height:1.25}
+.lb-side .t-en{margin:0 0 4px;color:var(--mute);font-weight:600;font-style:italic}
+.lb-when{margin:0;font-size:15px;color:var(--mute)}
+.close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1px solid #dccfbd;background:#fff;font-size:22px;line-height:1;cursor:pointer;color:var(--ch)}
+.close:focus-visible{outline:3px solid var(--straw)}
+.lines{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.lines li{background:#fffdf9;border:1px solid #e8dfd1;border-radius:10px;padding:9px 12px;display:grid;grid-template-columns:auto 1fr;gap:1px 12px;align-items:center}
+.lines li.novan{grid-template-columns:1fr}
+.lines .v{grid-row:span 2;font-weight:800;font-size:17px;background:#fbefd9;color:#7b5520;border-radius:8px;padding:3px 10px;text-align:center;min-width:48px}
+.lines .vi{font-weight:700;font-size:17px}
+.lines .e{color:var(--mute);font-size:14px}
+.tom{margin:14px 0 0;background:#fffdf9;border:1px solid #e8dfd1;border-radius:10px;padding:12px 14px;font-size:16px}
+.tom .en{display:block;margin-top:6px;font-size:14.5px}
+.tom small{display:block;font-size:12.5px;color:var(--mute);margin-bottom:4px;font-weight:700;letter-spacing:.3px}
+.lb-audio{margin-top:14px;background:#2f3031;border-radius:14px;padding:12px;color:#e9dcc6;font-size:14.5px;display:flex;align-items:center;gap:12px}
+.lb-audio.none{background:var(--green);color:var(--green-d);display:block}
+.lb-audio > svg{width:150px;flex:none;height:auto}
+.lb-audio .key svg{width:16px;height:16px}
+.lb-audio .k{display:flex;flex-direction:column;gap:6px;min-width:0}
+.lb-audio .key{height:40px;min-width:0;align-self:flex-start}
+.hint{margin-top:12px;font-size:13px;color:#8a7a68}
+.terms{max-width:860px;margin:46px auto 0;padding:0 16px}
+.terms-box{background:#fffdf9;border:1px solid #e8dfd1;border-left:6px solid var(--straw);border-radius:12px;padding:18px 20px}
+.terms-box h2{margin:0 0 6px;font-size:18px;font-weight:800}
+.terms-box h2 .en{font-weight:600}
+.terms-box p{margin:8px 0 0;font-size:15px}
+.terms-box p.en{font-size:14px}
+.terms-box a{color:var(--wood-d);font-weight:700}
+.terms-box hr{border:0;border-top:1px solid #eee3d2;margin:12px 0}
+.notice{display:inline-block;text-decoration:none;margin:14px auto 0;font-size:13.5px;background:#fbefd9;color:#7b5520;border:1px solid #efd8ae;border-radius:999px;padding:5px 14px;font-weight:700}
+img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.frame-btn,.tape-btn,.bay,.lb-img{-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+.print-only{display:none}
+@media print{body>*:not(.print-only){display:none !important}.print-only{display:block;padding:40px;font-size:18px;text-align:center}}
+@media (max-width:760px){
+  .lb-card{grid-template-columns:1fr}
+  .lb-img{border-radius:14px 14px 0 0}
+  .lb-img img{max-height:58vh}
+  .logo .logo-trau{width:50px}
+  .logo .logo-chu{height:54px}
+  .tag{display:none}
+  .piece{--w:100% !important}
+  .deck-body{grid-template-columns:1fr}
+  .speaker{display:none}
+  .deck{padding:14px 12px 16px;border-radius:22px}
+  .key{min-width:48px;padding:0 10px}
+  .key .lbl{display:none}
+  .lcd{font-size:13px;padding:6px 10px}
+  .shelf-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px;padding:14px 10px 20px}
+}
+</style>
+</head>
+<body>
+<div class="brandbar">
+  <a class="logo" href="#" aria-label="Trường Tiếng Việt Của Em">
+    <img class="logo-trau" src="anh/trau-con.png" alt="" width="541" height="640">
+    <img class="logo-chu" src="anh/logo-chu.png" alt="Trường Tiếng Việt Của Em" width="466" height="180">
+  </a>
+  <span class="tag">Triển lãm · 2026</span>
+</div>
+
+<header class="hero">
+  <div class="kicker">Triển lãm · Exhibition</div>
+  <h1>Triển lãm Em học tiếng Việt</h1>
+  <p class="h1-en">Learning Vietnamese: a children's exhibition</p>
+  <p class="intro">Những trang vở và giọng đọc của các em lớn lên ở Canada đang học tiếng Việt. Mỗi nét chữ, mỗi câu đọc là một bước nhỏ trên hành trình giữ tiếng nói của gia đình.
+    <span class="en">Notebook pages and voices of children growing up in Canada as they learn Vietnamese. Every handwritten line and every sentence read aloud is a small step in keeping their family's language alive.</span></p>
+  <a class="notice" href="#dieu-khoan">Chỉ để xem · Phi lợi nhuận · Không sao chép <span style="font-weight:600">· View only, non-profit, no copying</span></a>
+</header>
+
+<nav class="roomnav" id="roomnav" aria-label="Các gian triển lãm · Rooms"></nav>
+
+<section class="listen" id="phong-nghe" aria-labelledby="listen-title">
+  <div class="listen-head">
+    <div class="room-no">Phòng nghe chung · Listening room</div>
+    <h2 id="listen-title">Máy cát-xét của lớp</h2>
+    <p class="h2-en">The class tape player</p>
+    <p class="desc">Chọn một cuộn băng trên kệ để nghe, hoặc bấm “Phát cả cuộn” để nghe lần lượt giọng đọc của các em, từ tháng 8 đến tháng 11.
+      <span class="en">Pick a tape from the shelf, or press “Play all” to hear the children read one after another, from August to November.</span></p>
+  </div>
+
+  <div class="deck" id="deck">
+    <div class="deck-handle" aria-hidden="true"></div>
+    <div class="deck-top"><span class="deck-brand">Trâu Con · <b>Stereo</b> cassette</span><span class="led" aria-hidden="true"></span></div>
+    <div class="deck-body">
+      <div class="speaker" aria-hidden="true"></div>
+      <div>
+        <div class="bay" id="bay"></div>
+        <div class="lcd" aria-live="polite"><span id="lcd-t">Chọn một cuộn băng · Pick a tape</span><span id="lcd-time">0:00 / 0:00</span></div>
+      </div>
+      <div class="speaker" aria-hidden="true"></div>
+    </div>
+    <div class="keys">
+      <button class="key" id="k-prev" aria-label="Băng trước · Previous tape"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+      <button class="key play" id="k-play" aria-label="Phát · Play" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span class="lbl">PLAY</span></button>
+      <button class="key" id="k-stop" aria-label="Dừng · Stop"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><span class="lbl">STOP</span></button>
+      <button class="key" id="k-next" aria-label="Băng sau · Next tape"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      <button class="key all" id="k-all" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 7h11v2H4zm0 4h11v2H4zm0 4h7v2H4zm13-2v6l5-3z"/></svg><span>Phát cả cuộn · Play all</span></button>
+    </div>
+  </div>
+
+  <div class="shelf">
+    <h3>Kệ băng <span class="en">· Tape shelf</span></h3>
+    <div class="shelf-row" id="shelf"></div>
+    <div class="shelf-board" aria-hidden="true"></div>
+  </div>
+</section>
+
+<div id="rooms"></div>
+
+<p class="note">Chạm vào bức tranh để xem gần từng nét chữ, đọc bản dịch tiếng Anh và nghe các em đọc.<br>
+  <span class="en">Tap a frame to look closely at the handwriting, read the English translation and hear the children read.</span></p>
+
+<section class="terms" id="dieu-khoan" aria-labelledby="terms-title">
+  <div class="terms-box">
+    <h2 id="terms-title">Lưu ý về sử dụng tài liệu <span class="en">· Terms of use</span></h2>
+    <p>Các trang vở và bản ghi âm trong triển lãm này được đăng tải nhằm mục đích quan sát, và có thể được dùng cho nghiên cứu về tiếng Việt như một ngoại ngữ. Các nhà nghiên cứu ngôn ngữ muốn tìm hiểu thêm xin liên hệ <a href="mailto:contact@cvcec.org">contact@cvcec.org</a>.</p>
+    <p>Triển lãm hoàn toàn <b>phi lợi nhuận</b>. Tài liệu <b>không được</b> sử dụng vào mục đích thương mại, và không được sao chép, tải xuống hay chia sẻ lại dưới bất kỳ hình thức nào khi chưa có sự đồng ý bằng văn bản của CVCEC.</p>
+    <hr>
+    <p class="en">The notebook pages and recordings in this exhibition are published for observation and may be used for research on Vietnamese as a foreign language. Language researchers who would like more information may contact <a href="mailto:contact@cvcec.org">contact@cvcec.org</a>.</p>
+    <p class="en">This exhibition is entirely <b>non-profit</b>. The materials may <b>not</b> be used for any commercial purpose, and may not be copied, downloaded or shared in any form without written permission from CVCEC.</p>
+  </div>
+</section>
+
+<footer>
+  <div>Một hoạt động của <span class="org">Trường Tiếng Việt Của Em</span></div>
+  <div>Canada Vietnam Cultural &amp; Educational Council (CVCEC)</div>
+  <div class="copy">Copyrighted by CVCEC Trường Tiếng Việt Của Em 2026</div>
+</footer>
+
+<audio id="player" preload="none" controlsList="nodownload noplaybackrate" disableRemotePlayback></audio>
+<div class="print-only">Triển lãm Em học tiếng Việt chỉ để xem trực tuyến tại trienlam.cvcec.org.<br>This exhibition is for online viewing only.</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-card">
+    <div class="lb-img"><img id="lb-img" alt=""><div class="pager" id="pager"></div></div>
+    <div class="lb-side">
+      <button class="close" id="lb-close" aria-label="Đóng · Close">&times;</button>
+      <h3 id="lb-title"></h3>
+      <p class="t-en" id="lb-title-en"></p>
+      <p class="lb-when" id="lb-when"></p>
+      <div id="lb-body"></div>
+      <div class="lb-audio" id="lb-audio"></div>
+      <p class="hint">Chạm vào ảnh để phóng to · Tap the page to zoom</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = {"pieces": [{"id": "om-1", "room": "om", "ngay": "9/11/2026", "t": "Con ôm mẹ", "te": "I hug Mom", "van": ["om", "ôm", "ơm"], "trang": ["anh/om-1-1.jpg"], "khung": "anh/om-1-khung.jpg", "kw": 992, "kh": 1000, "dong": [["om", "Con thấy một con đom đóm.", "I see a firefly."], ["ôm", "Con ôm mẹ.", "I hug Mom."], ["ơm", "Con bơm xe đạp.", "I pump up my bike tires."]]}, {"id": "om-2", "room": "om", "ngay": "9/11/2026", "t": "Mẹ ôm con", "te": "Mom hugs me", "van": ["om", "ôm", "ơm"], "trang": ["anh/om-2-1.jpg"], "khung": "anh/om-2-khung.jpg", "kw": 999, "kh": 918, "dong": [["om", "Mẹ lom khom ngoài vườn.", "Mom bends down in the garden."], ["ôm", "Mẹ ôm con.", "Mom hugs me."], ["ơm", "Con ăn cơm.", "I eat my rice."]]}, {"id": "om-3", "room": "om", "ngay": "4/11/2026", "t": "Con thấy đom đóm", "te": "I see fireflies", "van": ["om", "ôm", "ơm"], "trang": ["anh/om-3-1.jpg"], "khung": "anh/om-3-khung.jpg", "kw": 1000, "kh": 651, "dong": [["om", "Con thấy đom đóm.", "I see fireflies."], ["ôm", "Tối nay con ăn tôm hùm.", "Tonight I am having lobster."], ["ơm", "Hôm nay con bơm xe.", "Today I pump up my bike."]]}, {"id": "om-4", "room": "om", "ngay": "8/11/2026", "t": "Chị ôm em", "te": "A big-sister hug", "van": ["om", "ôm", "ơm"], "trang": ["anh/om-4-1.jpg"], "khung": "anh/om-4-khung.jpg", "kw": 1000, "kh": 740, "dong": [["om", "Hàng xóm của con rất tốt bụng.", "My neighbours are very kind."], ["ôm", "Chị ôm em.", "Big sister hugs little sibling."], ["ơm", "Đồ ăn có mùi thơm.", "The food smells delicious."]]}, {"id": "om-5", "room": "om", "ngay": "9/11/2026", "t": "Đi xem đom đóm", "te": "Watching fireflies", "van": ["om", "ôm", "ơm"], "trang": ["anh/om-5-1.jpg"], "khung": "anh/om-5-khung.jpg", "kw": 999, "kh": 740, "dong": [["om", "Hôm nay em đi ra xem đom đóm.", "Today I went out to watch fireflies."], ["ôm", "Hôm nay em ăn kem.", "Today I had ice cream."], ["ơm", "Em ăn cơm có cá và sữa.", "I eat rice with fish, and milk."]]}, {"id": "lon-1", "room": "lon", "ngay": "7/8/2026", "t": "Kế hoạch chăm sóc bố mẹ", "te": "My plan to care for my parents", "van": [], "trang": ["anh/lon-1-1.jpg", "anh/lon-1-2.jpg"], "khung": "anh/lon-1-khung.jpg", "kw": 755, "kh": 1000, "tom": "Khi bố mẹ về già, con sẽ làm việc nhà, đi chợ, nấu ăn cho bố mẹ và đưa bố mẹ đi khám bác sĩ khi cần.", "tome": "When my parents grow old, I will do the housework, shop and cook for them, and take them to the doctor when they need it."}, {"id": "lon-2", "room": "lon", "ngay": "7/8/2026", "t": "Khi con lớn lên", "te": "When I grow up", "van": [], "trang": ["anh/lon-2-1.jpg"], "khung": "anh/lon-2-khung.jpg", "kw": 1000, "kh": 734, "tom": "Con sẽ bảo vệ cha mẹ, tự nấu ăn, lau nhà, nhắc cha mẹ uống thuốc và đưa cha mẹ đi du lịch, như về Việt Nam.", "tome": "I will protect my parents, cook and clean, help them take their medicine, and take them travelling, like back to Vietnam."}, {"id": "lon-3", "room": "lon", "ngay": "7/8/2026", "t": "Khi con lớn lên", "te": "When I grow up", "van": [], "trang": ["anh/lon-3-1.jpg"], "khung": "anh/lon-3-khung.jpg", "kw": 1000, "kh": 913, "tom": "Con sẽ cho ba mẹ một nửa tiền lương để ba mẹ đi du lịch, nấu món ngon, dọn nhà, và chăm sóc, yêu thương, kính trọng ba mẹ suốt đời.", "tome": "I will give my parents half my salary so they can travel, cook them good food, keep the house tidy, and care for, love and respect them all my life."}, {"id": "lon-4", "room": "lon", "ngay": "13/8/2026", "t": "Đưa mẹ đi vòng quanh trái đất", "te": "Taking Mom around the world", "van": [], "trang": ["anh/lon-4-1.jpg"], "khung": "anh/lon-4-khung.jpg", "kw": 709, "kh": 1000, "tom": "Con sẽ đưa mẹ đi vòng quanh trái đất, dành nhiều thời gian bên mẹ, học thật tốt để mẹ không lo lắng và giúp mẹ nấu ăn.", "tome": "I will take Mom around the world, spend more time with her, study hard so she never worries, and help her cook."}, {"id": "lon-5", "room": "lon", "ngay": "10/8/2026", "t": "Khi con khôn lớn", "te": "When I grow up", "van": [], "trang": ["anh/lon-5-1.jpg"], "khung": "anh/lon-5-khung.jpg", "kw": 1000, "kh": 940, "tom": "Con sẽ dành hai mươi phần trăm tiền lương cho ba mẹ, đưa ba mẹ đi du lịch, mua nhà, đấm lưng, ngâm chân cho ba mẹ và đưa ba mẹ đi khắp thế giới.", "tome": "I will give my parents twenty percent of my salary, take them travelling, buy them a house, give them back rubs and foot soaks, and show them the world."}, {"id": "lon-6", "room": "lon", "ngay": "13/8/2026", "t": "Khi em lớn lên", "te": "When I grow up", "van": [], "trang": ["anh/lon-6-1.jpg"], "khung": "anh/lon-6-khung.jpg", "kw": 1000, "kh": 984, "tom": "Em sẽ chăm sóc ba mẹ, mua đồ ăn, đưa ba mẹ đi du lịch, làm việc nhà, và gọi điện mỗi ngày khi đi làm xa, vì ba mẹ đã sinh ra và chăm sóc em.", "tome": "I will care for my parents, buy their food, take them travelling, help at home and call them every day when I work far away, because they gave me life and cared for me."}, {"id": "lon-7", "room": "lon", "ngay": "28/8/2026", "t": "Bên cạnh mẹ", "te": "Next to Mom", "van": [], "trang": ["anh/lon-7-1.jpg"], "khung": "anh/lon-7-khung.jpg", "kw": 1000, "kh": 838, "tom": "Con thấy rất vui và hạnh phúc khi ở bên cạnh mẹ. Mẹ làm việc vất vả để con có nhà ấm, dậy sớm đi làm và nấu ăn cho cả nhà.", "tome": "I feel happy and safe next to my mom. She works hard so we have a warm home, and she gets up early to work and cook for the whole family."}, {"id": "on-1", "room": "on", "ngay": "16/10/2026", "t": "Con biết ơn ba mẹ", "te": "Thank you, Mom and Dad", "van": ["on", "ôn", "ơn"], "trang": ["anh/on-1-1.jpg"], "khung": "anh/on-1-khung.jpg", "kw": 887, "kh": 1000, "dong": [["on", "Con thích đọc sách.", "I like reading books."], ["ôn", "Con thích ngắm hoàng hôn.", "I like watching the sunset."], ["ơn", "Con biết ơn ba mẹ vì ba mẹ nuôi con khôn lớn.", "I am grateful to my parents for raising me."]]}, {"id": "on-2", "room": "on", "ngay": "18/10/2026", "t": "Con lớn hơn em", "te": "Bigger than my little sibling", "van": ["on", "ôn", "ơn"], "trang": ["anh/on-2-1.jpg", "anh/on-2-2.jpg"], "khung": "anh/on-2-khung.jpg", "kw": 1000, "kh": 485, "dong": [["on", "Con có một cái nón.", "I have a hat."], ["ôn", "Con có bốn bạn.", "I have four friends."], ["ơn", "Con lớn hơn em.", "I am bigger than my little sibling."]]}, {"id": "on-3", "room": "on", "ngay": "19/10/2026", "t": "Con tắm trong bồn tắm", "te": "Bath time", "van": ["on", "ôn", "ơn"], "trang": ["anh/on-3-1.jpg", "anh/on-3-2.jpg"], "khung": "anh/on-3-khung.jpg", "kw": 1000, "kh": 517, "dong": [["on", "Con bón đồ ăn cho em con.", "I feed my little sibling."], ["ôn", "Con tắm ở trong bồn tắm.", "I take a bath in the bathtub."], ["ơn", "Con to lớn hơn bạn con.", "I am bigger than my friend."]]}, {"id": "en-1", "room": "en", "ngay": "23/10/2026", "t": "Đèn, pin, nến, cún", "te": "Lamp, battery, candle, puppy", "van": ["en", "ên", "in", "un"], "trang": ["anh/en-1-1.jpg", "anh/en-1-2.jpg"], "khung": "anh/en-1-khung.jpg", "kw": 1000, "kh": 693}, {"id": "en-2", "room": "en", "ngay": "26/10/2026", "t": "Đèn, pin, nến, cún", "te": "Lamp, battery, candle, puppy", "van": ["en", "ên", "in", "un"], "trang": ["anh/en-2-1.jpg"], "khung": "anh/en-2-khung.jpg", "kw": 911, "kh": 1000}, {"id": "en-3", "room": "en", "ngay": "27/10/2026", "t": "Đèn, pin, nến, cún", "te": "Lamp, battery, candle, puppy", "van": ["en", "ên", "in", "un"], "trang": ["anh/en-3-1.jpg"], "khung": "anh/en-3-khung.jpg", "kw": 944, "kh": 1000}, {"id": "en-4", "room": "en", "ngay": "27/10/2026", "t": "Đèn, pin, nến, cún", "te": "Lamp, battery, candle, puppy", "van": ["en", "ên", "in", "un"], "trang": ["anh/en-4-1.jpg"], "khung": "anh/en-4-khung.jpg", "kw": 880, "kh": 1000}, {"id": "cu-1", "room": "cu", "ngay": "21/8/2026", "t": "Chớ ghét cũ, không thích mới", "te": "Old things, new things", "van": [], "trang": ["anh/cu-1-1.jpg", "anh/cu-1-2.jpg"], "khung": "anh/cu-1-khung.jpg", "kw": 999, "kh": 732, "tom": "Câu thơ trong bài \"Phép tắc người con\" khuyên chúng ta tiết kiệm: giữ lại đồ cũ còn dùng tốt; đồ mới tốn kém, còn dùng lại đồ cũ góp phần bảo vệ môi trường.", "tome": "This line from \"Phép tắc người con\" teaches us to be thrifty: keep old things that still work. New things cost more, and reusing helps protect the environment."}, {"id": "cu-2", "room": "cu", "ngay": "21/8/2026", "t": "Chớ ghét cũ, không thích mới", "te": "Old things, new things", "van": [], "trang": ["anh/cu-2-1.jpg"], "khung": "anh/cu-2-khung.jpg", "kw": 914, "kh": 1000, "tom": "Phải biết quý trọng những thứ mình đang có, giữ gìn đồ chơi cũ cẩn thận, và có bạn mới thì cũng không bỏ bạn cũ.", "tome": "We should treasure what we have, look after our old toys, and never leave old friends behind when we make new ones."}, {"id": "cu-3", "room": "cu", "ngay": "21/8/2026", "t": "Chớ ghét cũ, không thích mới", "te": "Old things, new things", "van": [], "trang": ["anh/cu-3-1.jpg"], "khung": "anh/cu-3-khung.jpg", "kw": 1000, "kh": 928, "tom": "Đồ vật mình đã dùng thì không nên ghét bỏ; đồ chơi cũ còn dùng được thì nên trân trọng, bảo quản cẩn thận, không đòi cha mẹ mua mới vì cha mẹ kiếm tiền rất vất vả.", "tome": "We should not throw away things we have used. Old toys that still work deserve care, and we should not ask our parents for new ones, because they work hard for their money."}, {"id": "khac-1", "room": "khac", "ngay": "18/8/2026", "t": "Cá mè đớp con chuồn chuồn", "te": "The carp and the dragonfly", "van": [], "trang": ["anh/khac-1-1.jpg"], "khung": "anh/khac-1-khung.jpg", "kw": 1000, "kh": 997, "dong": [["", "Cá mè đớp con chuồn chuồn.", "The carp snaps at a dragonfly."], ["", "Ba có cuộc họp với đối tác.", "Dad has a meeting with his partners."], ["", "Lớp học chiều mai được nghỉ.", "There is no class tomorrow afternoon."]]}, {"id": "khac-2", "room": "khac", "ngay": "10/9/2026", "t": "Năm học mới", "te": "My new school year", "van": [], "trang": ["anh/khac-2-1.jpg"], "khung": "anh/khac-2-khung.jpg", "kw": 1000, "kh": 841, "tom": "Năm học 2026–2027 con vào lớp 6. Chương trình cấp hai khó hơn, nhưng con sẽ cố gắng nghe giảng, học bài và làm bài tập đầy đủ để đạt điểm cao.", "tome": "In 2026–2027 I start Grade 6. Middle school is harder, but I will listen in class, review my lessons and finish all my homework to get good marks."}], "audios": [{"ngay": "18/8/2026", "t": "Bài đọc ở nhà", "te": "Reading at home", "van": [], "tac": null, "id": "bang-01", "so": 1, "src": "am-thanh/bang-01.mp3", "dur": 86.9, "peaks": [0.72, 0.75, 0.73, 0.93, 0.76, 0.49, 0.15, 0.92, 0.55, 0.59, 0.36, 0.65, 0.26, 0.68, 0.71, 0.04, 0.66, 0.51, 0.62, 0.72, 0.04, 0.84, 0.04, 0.14, 1.0, 0.04, 0.51, 0.56, 0.53, 0.05, 0.12, 0.04, 1.0, 0.71, 0.46, 0.41, 0.4, 0.86, 0.3, 0.89, 0.87, 0.04, 0.6, 0.14, 0.04, 0.35, 0.31, 0.85, 0.04, 0.04, 1.0, 0.27, 0.25, 0.9, 0.75, 0.2, 0.04, 0.04, 0.04, 0.04, 0.77, 0.12, 0.67, 0.2, 1.0, 0.93, 0.45, 0.04, 0.04, 0.04, 0.38, 1.0, 0.04, 0.04, 0.17, 0.7, 0.63, 0.09, 0.75, 0.38, 0.63, 0.69, 0.05, 0.47, 0.43, 0.06, 0.6, 0.08, 0.13, 0.75]}, {"ngay": "18/8/2026", "t": "Cá mè đớp con chuồn chuồn", "te": "The carp and the dragonfly", "van": [], "tac": "khac-1", "id": "bang-02", "so": 2, "src": "am-thanh/bang-02.mp3", "dur": 87.7, "peaks": [1.0, 0.95, 0.24, 0.04, 0.68, 0.41, 0.04, 0.17, 0.04, 0.75, 0.52, 0.04, 0.04, 0.04, 0.77, 0.04, 0.74, 0.43, 0.15, 0.04, 0.04, 0.04, 0.04, 0.52, 0.04, 0.04, 0.44, 0.68, 0.79, 0.04, 0.04, 0.49, 0.69, 0.76, 0.85, 0.71, 0.04, 0.04, 0.21, 0.04, 0.36, 0.17, 0.7, 0.57, 0.08, 0.22, 1.0, 0.18, 0.04, 0.81, 0.2, 0.92, 0.2, 0.59, 0.37, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.64, 1.0, 0.54, 0.22, 0.2, 0.41, 0.98, 0.22, 0.04, 0.95, 0.77, 1.0, 0.37, 0.37, 0.85, 1.0, 0.04, 0.04, 0.04, 0.04, 0.13, 0.17, 0.46, 0.81, 0.44, 0.04, 0.12, 0.12]}, {"ngay": "21/8/2026", "t": "Chớ ghét cũ, không thích mới", "te": "Old things, new things", "van": [], "tac": "cu-3", "id": "bang-03", "so": 3, "src": "am-thanh/bang-03.mp3", "dur": 79.6, "peaks": [1.0, 0.71, 0.44, 0.42, 0.89, 0.61, 0.6, 0.6, 0.04, 1.0, 0.52, 0.94, 0.67, 0.79, 0.78, 0.04, 0.04, 0.61, 1.0, 0.85, 0.6, 0.48, 0.59, 0.78, 0.56, 0.87, 0.79, 0.47, 0.7, 0.99, 0.6, 1.0, 0.89, 0.89, 0.6, 0.49, 0.31, 0.66, 0.47, 0.88, 0.52, 0.45, 0.89, 0.81, 0.43, 0.04, 0.04, 0.98, 0.32, 0.8, 0.14, 0.79, 0.18, 0.65, 0.84, 0.04, 0.87, 0.88, 0.04, 0.46, 0.54, 0.3, 0.54, 0.61, 0.7, 0.56, 0.62, 0.51, 0.51, 0.33, 0.83, 0.84, 0.04, 0.04, 0.04, 0.52, 0.9, 1.0, 0.27, 0.45, 0.4, 0.81, 0.55, 0.74, 0.47, 0.64, 0.56, 0.79, 0.06, 0.04]}, {"ngay": "24/8/2026", "t": "Bài đọc ở nhà", "te": "Reading at home", "van": [], "tac": null, "id": "bang-04", "so": 4, "src": "am-thanh/bang-04.mp3", "dur": 58.1, "peaks": [0.04, 0.55, 0.97, 0.76, 1.0, 0.12, 0.91, 0.6, 0.73, 0.22, 0.47, 0.45, 0.04, 0.04, 1.0, 1.0, 0.48, 0.47, 0.71, 0.74, 0.07, 0.94, 1.0, 0.49, 0.04, 0.74, 0.74, 0.81, 0.14, 0.68, 0.04, 0.04, 0.97, 1.0, 0.78, 0.52, 0.3, 0.74, 0.62, 0.04, 0.41, 0.9, 0.57, 0.04, 0.04, 0.04, 0.4, 0.79, 0.98, 0.53, 0.57, 0.37, 0.04, 0.6, 0.1, 0.85, 0.04, 0.04, 0.04, 0.89, 0.97, 0.96, 0.53, 0.78, 0.74, 0.04, 0.04, 0.86, 0.82, 0.58, 0.79, 0.49, 0.23, 0.65, 0.46, 0.98, 0.72, 0.41, 0.04, 0.05, 0.04, 0.04, 0.04, 0.04, 0.92, 0.47, 0.68, 0.62, 0.51, 0.21]}, {"ngay": "18/10/2026", "t": "Con lớn hơn em", "te": "Bigger than my little sibling", "van": ["on", "ôn", "ơn"], "tac": "on-2", "id": "bang-05", "so": 5, "src": "am-thanh/bang-05.mp3", "dur": 183.6, "peaks": [0.74, 1.0, 0.77, 0.59, 0.71, 0.92, 0.58, 0.83, 0.7, 0.73, 0.78, 0.99, 0.52, 0.68, 0.85, 0.44, 0.85, 0.74, 1.0, 0.65, 0.82, 0.73, 0.7, 0.8, 0.42, 0.76, 0.83, 0.39, 0.89, 0.79, 0.37, 0.53, 0.78, 0.81, 0.78, 0.31, 0.29, 0.47, 0.96, 0.48, 0.53, 0.51, 0.72, 0.97, 0.47, 0.74, 0.27, 0.53, 0.43, 0.04, 0.24, 1.0, 0.79, 0.59, 1.0, 0.56, 0.54, 0.04, 0.77, 1.0, 0.19, 0.55, 0.59, 0.95, 0.5, 0.76, 0.92, 0.28, 0.78, 0.04, 0.66, 0.74, 0.62, 0.86, 0.73, 0.69, 0.98, 0.93, 0.36, 0.7, 0.14, 0.91, 0.58, 0.67, 0.73, 0.77, 0.56, 0.64, 0.9, 0.61]}, {"ngay": "19/10/2026", "t": "Con tắm trong bồn tắm", "te": "Bath time", "van": ["on", "ôn", "ơn"], "tac": "on-3", "id": "bang-06", "so": 6, "src": "am-thanh/bang-06.mp3", "dur": 88.6, "peaks": [0.88, 0.99, 0.25, 0.95, 0.53, 0.54, 0.81, 0.04, 0.04, 0.04, 0.04, 0.57, 0.91, 1.0, 0.11, 0.6, 0.64, 0.31, 0.64, 0.21, 0.63, 0.2, 0.59, 0.99, 0.4, 0.51, 0.8, 0.46, 0.56, 0.07, 0.58, 0.41, 0.34, 0.64, 0.04, 0.39, 0.61, 0.66, 0.36, 0.44, 0.24, 0.56, 0.04, 0.56, 0.36, 0.79, 0.04, 1.0, 0.32, 1.0, 0.3, 0.37, 0.04, 0.16, 0.67, 0.61, 0.17, 0.22, 0.7, 0.04, 0.74, 0.04, 0.04, 0.58, 0.89, 0.1, 0.28, 0.26, 0.71, 0.33, 0.5, 0.67, 0.05, 0.04, 0.04, 0.4, 0.75, 0.89, 1.0, 0.57, 0.57, 0.59, 0.82, 0.85, 0.82, 0.04, 0.04, 1.0, 0.82, 0.86]}, {"ngay": "23/10/2026", "t": "Đèn, pin, nến, cún", "te": "Lamp, battery, candle, puppy", "van": ["en", "ên", "in", "un"], "tac": "en-1", "id": "bang-07", "so": 7, "src": "am-thanh/bang-07.mp3", "dur": 53.2, "peaks": [0.74, 0.9, 0.94, 0.61, 0.04, 0.49, 0.39, 0.18, 1.0, 0.65, 0.2, 0.5, 0.27, 0.99, 0.82, 0.04, 0.71, 0.31, 0.75, 0.49, 0.66, 0.63, 0.86, 0.04, 0.08, 1.0, 0.84, 0.99, 0.85, 0.51, 0.27, 0.42, 0.84, 0.28, 0.56, 0.33, 0.75, 0.04, 0.53, 0.07, 0.81, 0.33, 0.54, 0.04, 0.27, 0.74, 0.37, 0.86, 0.04, 0.39, 0.71, 0.46, 1.0, 0.21, 0.71, 0.04, 0.55, 0.26, 0.51, 0.44, 0.45, 0.49, 0.04, 0.04, 0.72, 0.48, 0.56, 0.6, 0.49, 0.14, 0.35, 0.81, 0.84, 0.59, 0.76, 0.07, 0.15, 0.77, 0.04, 0.39, 1.0, 0.27, 0.85, 0.38, 0.2, 1.0, 0.23, 1.0, 0.29, 0.04]}, {"ngay": "27/10/2026", "t": "Bài đọc ở nhà", "te": "Reading at home", "van": [], "tac": null, "id": "bang-08", "so": 8, "src": "am-thanh/bang-08.mp3", "dur": 186.1, "peaks": [1.0, 0.8, 0.72, 0.75, 0.7, 0.93, 0.59, 0.83, 0.74, 0.84, 0.66, 0.87, 0.62, 0.76, 0.65, 0.41, 0.83, 0.84, 0.64, 0.8, 0.97, 0.84, 0.78, 0.57, 0.04, 1.0, 0.69, 0.76, 0.78, 0.68, 0.9, 1.0, 0.81, 0.97, 0.92, 0.72, 0.87, 0.97, 0.8, 0.97, 0.33, 0.93, 0.67, 0.64, 0.77, 0.63, 0.9, 0.83, 0.52, 0.05, 0.96, 0.79, 0.79, 0.57, 0.58, 0.8, 0.15, 0.76, 0.87, 0.64, 0.6, 0.85, 0.73, 0.91, 0.77, 0.98, 0.49, 1.0, 0.7, 0.87, 0.43, 0.11, 0.79, 0.76, 0.71, 0.81, 0.55, 0.17, 0.62, 0.85, 0.59, 0.78, 1.0, 0.74, 0.59, 1.0, 0.46, 0.73, 0.98, 0.55]}, {"ngay": "2/11/2026", "t": "Bài đọc ở nhà", "te": "Reading at home", "van": [], "tac": null, "id": "bang-09", "so": 9, "src": "am-thanh/bang-09.mp3", "dur": 166.4, "peaks": [0.82, 0.97, 0.75, 0.48, 1.0, 0.6, 0.52, 0.86, 0.81, 0.85, 0.95, 0.72, 0.9, 0.48, 1.0, 0.45, 0.54, 0.74, 0.95, 0.5, 0.52, 0.4, 0.91, 0.88, 0.77, 1.0, 0.57, 0.46, 0.61, 0.76, 0.71, 0.44, 0.94, 0.63, 0.61, 0.96, 0.69, 0.86, 0.97, 0.9, 0.89, 0.99, 0.46, 0.56, 0.71, 0.72, 0.75, 0.91, 0.71, 0.43, 1.0, 0.73, 0.39, 0.85, 0.7, 0.62, 1.0, 0.69, 0.72, 0.91, 0.5, 0.73, 0.68, 0.23, 1.0, 0.97, 0.53, 0.66, 0.8, 0.55, 0.28, 0.78, 0.87, 0.59, 0.85, 0.53, 0.63, 0.44, 0.92, 0.44, 0.56, 0.83, 0.6, 0.57, 0.48, 0.86, 0.5, 0.73, 0.84, 0.55]}, {"ngay": "3/11/2026", "t": "Bài đọc ở nhà", "te": "Reading at home", "van": [], "tac": null, "id": "bang-10", "so": 10, "src": "am-thanh/bang-10.mp3", "dur": 145.5, "peaks": [1.0, 0.84, 0.9, 1.0, 0.17, 0.89, 0.6, 0.71, 0.21, 0.82, 0.74, 0.74, 0.86, 0.83, 0.88, 0.22, 0.88, 0.75, 0.49, 0.94, 0.05, 0.85, 0.65, 0.4, 0.39, 0.15, 0.69, 0.69, 0.55, 0.57, 0.85, 0.04, 0.79, 0.58, 0.56, 0.57, 0.61, 0.49, 0.46, 0.59, 0.64, 0.4, 0.88, 1.0, 0.86, 0.32, 0.79, 1.0, 0.04, 0.9, 0.53, 0.8, 0.45, 0.14, 0.07, 0.74, 0.58, 0.63, 0.29, 0.09, 0.13, 0.51, 0.99, 0.76, 1.0, 0.24, 0.86, 0.85, 0.48, 0.38, 0.53, 0.89, 0.82, 0.29, 0.48, 0.74, 0.52, 0.55, 0.45, 0.61, 0.39, 0.69, 0.84, 0.5, 0.49, 0.69, 0.15, 0.54, 0.71, 0.47]}, {"ngay": "3/11/2026", "t": "Bài đọc ở nhà", "te": "Reading at home", "van": [], "tac": null, "id": "bang-11", "so": 11, "src": "am-thanh/bang-11.mp3", "dur": 93.2, "peaks": [0.8, 1.0, 0.15, 0.41, 0.51, 0.43, 0.45, 0.46, 0.61, 0.15, 0.21, 0.04, 0.04, 0.66, 0.52, 0.57, 0.61, 0.3, 0.8, 0.68, 0.04, 1.0, 0.46, 0.04, 0.59, 0.55, 0.04, 0.1, 0.19, 0.58, 0.49, 0.06, 0.04, 0.06, 0.04, 0.77, 1.0, 0.51, 0.4, 0.44, 0.04, 0.04, 0.04, 0.04, 0.6, 0.53, 0.11, 0.44, 0.58, 0.36, 0.4, 0.18, 0.93, 0.04, 0.64, 0.04, 0.04, 0.12, 0.77, 0.04, 0.78, 0.63, 0.04, 0.04, 0.04, 0.04, 1.0, 0.04, 0.04, 0.28, 0.04, 0.04, 0.04, 0.04, 0.04, 0.72, 0.25, 0.58, 1.0, 0.83, 0.3, 1.0, 0.68, 0.23, 0.04, 0.04, 0.04, 0.58, 0.53, 0.84]}, {"ngay": "4/11/2026", "t": "Con thấy đom đóm", "te": "I see fireflies", "van": ["om", "ôm", "ơm"], "tac": "om-3", "id": "bang-12", "so": 12, "src": "am-thanh/bang-12.mp3", "dur": 37.3, "peaks": [0.61, 0.47, 0.39, 0.68, 0.04, 0.04, 0.93, 0.45, 0.67, 0.61, 0.3, 0.57, 0.53, 0.17, 0.37, 0.41, 0.86, 0.5, 0.92, 0.04, 0.67, 1.0, 0.71, 0.31, 0.56, 0.45, 0.56, 0.39, 0.11, 0.72, 0.19, 0.04, 0.04, 0.04, 0.04, 0.92, 0.79, 0.92, 0.94, 0.68, 1.0, 0.9, 0.65, 0.16, 0.05, 0.88, 0.61, 0.77, 0.49, 0.04, 0.04, 0.17, 0.89, 0.15, 0.04, 1.0, 0.31, 0.04, 1.0, 0.36, 0.63, 0.42, 0.04, 0.04, 0.04, 0.04, 0.92, 0.76, 0.7, 0.58, 0.04, 0.04, 0.04, 1.0, 0.63, 0.52, 0.13, 0.04, 0.31, 0.75, 0.06, 0.29, 1.0, 0.23, 0.04, 0.82, 0.25, 0.55, 0.09, 0.04]}, {"ngay": "8/11/2026", "t": "Chị ôm em", "te": "A big-sister hug", "van": ["om", "ôm", "ơm"], "tac": "om-4", "id": "bang-13", "so": 13, "src": "am-thanh/bang-13.mp3", "dur": 60.7, "peaks": [0.64, 0.82, 0.84, 0.81, 0.04, 0.04, 0.75, 0.81, 0.64, 0.04, 0.49, 1.0, 0.57, 0.04, 0.04, 0.04, 0.74, 0.71, 0.84, 0.41, 0.04, 0.45, 0.86, 0.21, 0.59, 0.8, 0.75, 0.04, 0.47, 0.8, 0.91, 0.69, 0.04, 1.0, 0.8, 0.58, 0.07, 0.04, 0.84, 0.17, 0.69, 0.66, 0.04, 0.48, 0.85, 0.04, 0.86, 0.04, 0.04, 0.04, 0.43, 0.37, 0.87, 0.2, 0.61, 0.63, 0.77, 0.04, 0.04, 0.04, 0.45, 0.76, 0.04, 1.0, 0.23, 0.04, 0.04, 0.04, 0.44, 0.98, 0.36, 0.04, 0.04, 0.7, 0.09, 0.37, 0.67, 0.17, 0.04, 1.0, 1.0, 0.7, 0.53, 0.04, 0.45, 0.26, 0.67, 0.84, 0.6, 0.11]}, {"ngay": "9/11/2026", "t": "Đi xem đom đóm", "te": "Watching fireflies", "van": ["om", "ôm", "ơm"], "tac": "om-5", "id": "bang-14", "so": 14, "src": "am-thanh/bang-14.mp3", "dur": 22.4, "peaks": [0.32, 0.8, 0.52, 0.62, 0.68, 0.6, 0.49, 0.72, 0.79, 0.56, 0.04, 0.04, 0.62, 0.55, 0.93, 0.46, 1.0, 0.57, 0.52, 0.37, 0.23, 0.56, 0.19, 0.14, 0.35, 0.05, 0.37, 0.11, 0.2, 0.17, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.04, 0.09, 1.0, 0.47, 0.81, 0.47, 0.55, 0.25, 0.65, 0.26, 0.04, 0.37, 0.58, 0.41, 0.97, 0.1, 0.29, 0.28, 0.45, 0.41, 0.04, 0.04, 0.04, 0.79, 0.72, 0.99, 0.24, 0.04, 0.52, 1.0, 1.0, 1.0, 0.04, 0.07, 0.26, 0.07, 0.04, 0.09, 0.05, 0.08, 0.47, 0.04, 0.04, 0.08, 0.41, 0.5, 0.79, 0.83, 0.91, 0.08, 0.7, 0.72, 0.56, 0.07]}]};
+
+const ROOMS = [
+  { id:'om', no:'Gian 1 · Room 1', t:'Om – ôm – ơm', te:'Hugs and fireflies',
+    d:'Tháng 11/2026. Các em tập vần om, ôm, ơm và tự đặt câu: con ôm mẹ, mẹ ôm con, chị ôm em.',
+    de:'November 2026. Practising the rhymes om, ôm and ơm, the children wrote their own sentences: I hug Mom, Mom hugs me, big sister hugs little sibling.' },
+  { id:'lon', no:'Gian 2 · Room 2', t:'Khi con lớn lên', te:'When I grow up',
+    d:'Tháng 8/2026. Các em lớn viết đoạn văn về những điều sẽ làm cho bố mẹ khi mình trưởng thành.',
+    de:'August 2026. Older students wrote about what they will do for their parents when they grow up.' },
+  { id:'on', no:'Gian 3 · Room 3', t:'On – ôn – ơn', te:'Grateful hearts',
+    d:'Giữa tháng 10/2026. Vần on, ôn, ơn, và câu “Con biết ơn ba mẹ vì ba mẹ nuôi con khôn lớn.”',
+    de:'Mid-October 2026. The rhymes on, ôn and ơn, including “I am grateful to my parents for raising me.”' },
+  { id:'en', no:'Gian 4 · Room 4', t:'En – ên – in – un', te:'Lamp, battery, candle, puppy',
+    d:'Cuối tháng 10/2026. Bốn em cùng luyện một bài: đèn, pin, nến, cún. Mỗi em một nét chữ.',
+    de:'Late October 2026. Four children practised the same page (đèn, pin, nến, cún), each in their own handwriting.' },
+  { id:'cu', no:'Gian 5 · Room 5', t:'Chớ ghét cũ, không thích mới', te:'Old things, new things',
+    d:'Tháng 8/2026. Các em giải thích ý nghĩa câu thơ trong bài “Phép tắc người con”.',
+    de:'August 2026. Students explained a line from the traditional poem “Phép tắc người con” (A child\'s good manners).' },
+  { id:'khac', no:'Gian 6 · Room 6', t:'Thêm những trang vở', te:'More pages',
+    d:'Câu văn ngắn và kế hoạch cho năm học mới.',
+    de:'Short sentences, and plans for the new school year.' }
+];
+
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = s => { s = Math.max(0, Math.round(s || 0)); return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); };
+const ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+const ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+const byId = Object.fromEntries(DATA.pieces.map(p => [p.id, p]));
+const audById = Object.fromEntries(DATA.audios.map(a => [a.id, a]));
+const audioOf = Object.fromEntries(DATA.audios.filter(a => a.tac).map(a => [a.tac, a]));
+const SHELLS = [['#3A3B3C','#DDAA55'],['#C68B59','#3A3B3C'],['#6E8B5E','#F4F0EA'],['#D98B6F','#3A3B3C'],['#2F4A5A','#DDAA55'],['#9E683C','#F4F0EA']];
+
+function cassette(a, opts = {}){
+  const [shell, stripe] = SHELLS[(a.so - 1) % SHELLS.length];
+  const f = opts.f ?? 0, rMin = 10, rMax = 18;
+  const rl = rMin + (rMax - rMin) * (1 - f), rr = rMin + (rMax - rMin) * f;
+  const hub = (cx) => `<g class="reel"><circle cx="${cx}" cy="101" r="9" fill="#f7f1e6"/>${[0,60,120,180,240,300].map(d => `<rect x="${cx-1.6}" y="${101-8.5}" width="3.2" height="4.5" rx="1" fill="#3a3b3c" transform="rotate(${d} ${cx} 101)"/>`).join('')}<circle cx="${cx}" cy="101" r="3.2" fill="#3a3b3c"/></g>`;
+  const title = opts.title ?? a.t;
+  return `<svg viewBox="0 0 240 152" role="img" aria-label="${esc('Băng số ' + a.so + ': ' + a.t + ', ' + a.ngay)}">
+    <rect x="2" y="2" width="236" height="148" rx="12" fill="${shell}"/>
+    <rect x="2" y="2" width="236" height="148" rx="12" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+    ${[[12,12],[228,12],[12,140],[228,140],[120,140]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="3.4" fill="rgba(0,0,0,.35)"/><path d="M${x-2} ${y}h4" stroke="rgba(255,255,255,.4)" stroke-width="1"/>`).join('')}
+    <rect x="20" y="14" width="200" height="62" rx="6" fill="#fffaf0"/>
+    <rect x="20" y="14" width="200" height="14" rx="6" fill="${stripe}"/>
+    <rect x="20" y="22" width="200" height="6" fill="${stripe}"/>
+    <text x="28" y="25" font-family="Nunito,sans-serif" font-weight="900" font-size="9.5" fill="${stripe === '#3A3B3C' || stripe === '#9E683C' ? '#F4F0EA' : '#3A3B3C'}" letter-spacing="1">BĂNG SỐ ${String(a.so).padStart(2,'0')}</text>
+    <text x="212" y="25" text-anchor="end" font-family="Nunito,sans-serif" font-weight="800" font-size="9" fill="${stripe === '#3A3B3C' || stripe === '#9E683C' ? '#F4F0EA' : '#3A3B3C'}">${esc(a.ngay)}</text>
+    <text x="120" y="50" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="${title.length > 24 ? 11.5 : 14}" fill="#3A3B3C">${esc(title.length > 32 ? title.slice(0,31) + '…' : title)}</text>
+    <text x="120" y="66" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="600" font-size="9.5" fill="#7a6a58">${esc(a.van && a.van.length ? 'vần ' + a.van.join(' – ') : a.te)} · ${fmt(a.dur)}</text>
+    <rect x="58" y="82" width="124" height="38" rx="19" fill="#151617"/>
+    <rect x="58" y="82" width="124" height="38" rx="19" fill="none" stroke="rgba(255,255,255,.12)"/>
+    <circle class="tape-l" cx="90" cy="101" r="${rl.toFixed(1)}" fill="#4a3426"/>
+    <circle class="tape-r" cx="150" cy="101" r="${rr.toFixed(1)}" fill="#4a3426"/>
+    <rect x="104" y="92" width="32" height="18" rx="3" fill="rgba(255,255,255,.08)"/>
+    ${hub(90)}${hub(150)}
+    <path d="M52 150 L64 128 H176 L188 150 Z" fill="rgba(0,0,0,.28)"/>
+    <circle cx="84" cy="140" r="4" fill="rgba(0,0,0,.45)"/><circle cx="156" cy="140" r="4" fill="rgba(0,0,0,.45)"/>
+  </svg>`;
+}
+
+/* ---------- Kệ băng và máy ---------- */
+const shelf = document.getElementById('shelf'), bay = document.getElementById('bay'), deck = document.getElementById('deck');
+DATA.audios.forEach(a => {
+  const b = document.createElement('button');
+  b.className = 'tape-btn'; b.dataset.tape = a.id;
+  b.innerHTML = cassette(a) + `<span class="cap">${esc(a.t)} · ${esc(a.ngay)}</span>`;
+  shelf.appendChild(b);
+});
+const player = document.getElementById('player');
+let current = null, playAll = false;
+function emptyBay(){
+  bay.innerHTML = `<svg viewBox="0 0 240 152" aria-hidden="true"><rect x="2" y="2" width="236" height="148" rx="12" fill="#232425" stroke="#3a3b3c" stroke-width="2" stroke-dasharray="6 6"/><text x="120" y="72" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#8a8a8a">Ngăn băng trống</text><text x="120" y="92" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="600" font-size="11" fill="#6f6f6f">Chọn một cuộn băng trên kệ</text></svg>`;
+}
+emptyBay();
+function updateTape(){
+  if (!current) return;
+  const f = player.duration ? player.currentTime / player.duration : 0;
+  const rMin = 10, rMax = 18;
+  document.querySelectorAll('.tape-l').forEach(c => { if (c.closest('#bay, #lb-audio')) c.setAttribute('r', (rMin + (rMax-rMin)*(1-f)).toFixed(1)); });
+  document.querySelectorAll('.tape-r').forEach(c => { if (c.closest('#bay, #lb-audio')) c.setAttribute('r', (rMin + (rMax-rMin)*f).toFixed(1)); });
+  document.getElementById('lcd-time').textContent = fmt(player.currentTime) + ' / ' + fmt(player.duration || current.dur);
+}
+function syncUI(){
+  const on = !!current && !player.paused;
+  deck.classList.toggle('playing', on);
+  bay.classList.toggle('spinning', on);
+  const kp = document.getElementById('k-play');
+  kp.innerHTML = (on ? ICON_PAUSE : ICON_PLAY) + `<span class="lbl">${on ? 'PAUSE' : 'PLAY'}</span>`;
+  kp.setAttribute('aria-pressed', on); kp.setAttribute('aria-label', on ? 'Tạm dừng · Pause' : 'Phát · Play');
+  document.getElementById('k-all').setAttribute('aria-pressed', playAll);
+  document.getElementById('lcd-t').textContent = current ? `Băng ${String(current.so).padStart(2,'0')} · ${current.t}` : 'Chọn một cuộn băng · Pick a tape';
+  if (!current) document.getElementById('lcd-time').textContent = '0:00 / 0:00';
+  document.querySelectorAll('.tape-btn').forEach(b => b.classList.toggle('loaded', !!current && b.dataset.tape === current.id));
+  const la = document.getElementById('lb-audio');
+  if (la && la.dataset.aid) {
+    const mine = current && current.id === la.dataset.aid && on;
+    la.classList.toggle('spinning', mine);
+    const k = la.querySelector('.key');
+    if (k) k.innerHTML = (mine ? ICON_PAUSE : ICON_PLAY) + `<span>${mine ? 'Tạm dừng' : 'Nghe em đọc'}</span>`;
+  }
+  document.querySelectorAll('[data-play]').forEach(b => {
+    const mine = current && b.dataset.play === current.id && on;
+    b.innerHTML = (mine ? ICON_PAUSE : ICON_PLAY) + `<span>${mine ? 'Tạm dừng' : 'Nghe em đọc'}</span>`;
+  });
+}
+function load(id, autoplay = true){
+  const a = audById[id]; if (!a) return;
+  if (current && current.id === id) { if (player.paused) player.play().catch(()=>{}); else player.pause(); return; }
+  current = a;
+  bay.innerHTML = cassette(a);
+  player.src = a.src;
+  if (autoplay) player.play().catch(()=>{});
+  updateTape(); syncUI();
+}
+function stop(){ player.pause(); try { player.currentTime = 0; } catch(e) {} playAll = false; updateTape(); syncUI(); }
+function step(d){
+  const ids = DATA.audios.map(a => a.id);
+  const i = current ? ids.indexOf(current.id) : -1;
+  const n = (i + d + ids.length) % ids.length;
+  current = null; load(ids[n]);
+}
+player.addEventListener('timeupdate', updateTape);
+player.addEventListener('loadedmetadata', updateTape);
+player.addEventListener('play', syncUI);
+player.addEventListener('pause', syncUI);
+player.addEventListener('ended', () => {
+  const ids = DATA.audios.map(a => a.id), i = ids.indexOf(current.id);
+  if (playAll && i < ids.length - 1) { setTimeout(() => { current = null; load(ids[i+1]); }, 900); return; }
+  playAll = false; syncUI();
+});
+shelf.addEventListener('click', e => { const b = e.target.closest('[data-tape]'); if (b) { playAll = false; load(b.dataset.tape); document.getElementById('deck').scrollIntoView({behavior:'smooth', block:'center'}); } });
+document.getElementById('k-play').addEventListener('click', () => {
+  if (!current) { load(DATA.audios[0].id); return; }
+  if (player.paused) player.play().catch(()=>{}); else player.pause();
+});
+document.getElementById('k-stop').addEventListener('click', stop);
+document.getElementById('k-prev').addEventListener('click', () => step(-1));
+document.getElementById('k-next').addEventListener('click', () => step(1));
+document.getElementById('k-all').addEventListener('click', () => {
+  if (playAll) { stop(); return; }
+  playAll = true; current = null; load(DATA.audios[0].id);
+});
+
+/* ---------- Gian triển lãm ---------- */
+const nav = document.getElementById('roomnav');
+nav.innerHTML = `<a class="tape" href="#phong-nghe">Phòng nghe chung</a>` + ROOMS.map(r => `<a href="#gian-${r.id}">${esc(r.t)}</a>`).join('');
+const roomsEl = document.getElementById('rooms');
+ROOMS.forEach(r => {
+  const list = DATA.pieces.filter(p => p.room === r.id);
+  const sec = document.createElement('section');
+  sec.className = 'room'; sec.id = 'gian-' + r.id;
+  sec.innerHTML = `
+    <div class="room-head">
+      <div class="room-no">${esc(r.no)}</div>
+      <h2>${esc(r.t)}</h2>
+      <p class="h2-en">${esc(r.te)}</p>
+      <p class="desc">${esc(r.d)}<span class="en">${esc(r.de)}</span></p>
+    </div>
+    <div class="wall"><div class="rail" aria-hidden="true"></div><div class="gallery"></div><div class="base" aria-hidden="true"></div></div>`;
+  const g = sec.querySelector('.gallery');
+  list.forEach(p => {
+    const a = audioOf[p.id];
+    const w = Math.round(Math.min(420, Math.max(250, 340 * Math.sqrt(p.kw / p.kh))));
+    const el = document.createElement('article');
+    el.className = 'piece'; el.style.setProperty('--w', w + 'px');
+    el.innerHTML = `
+      <div class="spot" aria-hidden="true"></div>
+      <svg class="wire" viewBox="0 0 100 58" preserveAspectRatio="none" aria-hidden="true">
+        <circle cx="50" cy="4" r="1.6" fill="#7b5520"/>
+        <line x1="50" y1="4" x2="22" y2="56" stroke="#6f6a63" stroke-width=".5" vector-effect="non-scaling-stroke"/>
+        <line x1="50" y1="4" x2="78" y2="56" stroke="#6f6a63" stroke-width=".5" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <button class="frame-btn" data-open="${esc(p.id)}" aria-label="Xem gần: ${esc(p.t)}">
+        <img src="${esc(p.khung)}" alt="Trang vở viết tay: ${esc(p.t)}" width="${p.kw}" height="${p.kh}" loading="lazy">
+      </button>
+      <div class="label">
+        <h3>${esc(p.t)}</h3>
+        <p class="t-en">${esc(p.te)}</p>
+        <p class="when">${esc(p.ngay)}</p>
+        ${p.van.length ? `<div class="vans">${p.van.map(v => `<span class="van-chip">vần ${esc(v)}</span>`).join('')}</div>` : ''}
+        <div class="label-actions">
+          <button class="btn" data-open="${esc(p.id)}">Xem gần <small>· Look closer</small></button>
+          ${a ? `<button class="btn ghost" data-play="${esc(a.id)}">${ICON_PLAY}<span>Nghe em đọc</span></button>` : ''}
+        </div>
+      </div>`;
+    g.appendChild(el);
+  });
+  roomsEl.appendChild(sec);
+});
+
+/* ---------- Xem gần ---------- */
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img');
+let lastFocus = null, openId = null;
+function showPage(p, i){
+  lbImg.classList.remove('zoom');
+  lbImg.src = p.trang[i]; lbImg.alt = `Trang ${i+1}: ${p.t}`;
+  document.querySelectorAll('#pager button').forEach((b, k) => b.setAttribute('aria-pressed', k === i));
+}
+function openLb(id, fromHash){
+  const p = byId[id]; if (!p) return;
+  lastFocus = document.activeElement; openId = id;
+  const pager = document.getElementById('pager');
+  pager.innerHTML = p.trang.length > 1 ? p.trang.map((_, i) => `<button data-pg="${i}">Trang ${i+1} · Page ${i+1}</button>`).join('') : '';
+  showPage(p, 0);
+  document.getElementById('lb-title').textContent = p.t;
+  document.getElementById('lb-title-en').textContent = p.te;
+  document.getElementById('lb-when').textContent = p.ngay + (p.van.length ? ' · vần ' + p.van.join(', ') : '');
+  let body = '';
+  if (p.dong) body = `<ul class="lines">${p.dong.map(([v, vi, en]) => `<li class="${v ? '' : 'novan'}">${v ? `<span class="v">${esc(v)}</span>` : ''}<span class="vi">${esc(vi)}</span><span class="e">${esc(en)}</span></li>`).join('')}</ul>`;
+  else if (p.tom) body = `<div class="tom"><small>TÓM TẮT · IN SHORT</small>${esc(p.tom)}<span class="en">${esc(p.tome)}</span></div>`;
+  else body = `<div class="tom">Luyện viết vần ${p.van.map(esc).join(', ')} và các tiếng: đèn, pin, nến, cún.<span class="en">Practising the rhymes ${p.van.map(esc).join(', ')} with the words lamp, battery, candle and puppy.</span></div>`;
+  document.getElementById('lb-body').innerHTML = body;
+  const box = document.getElementById('lb-audio'), a = audioOf[id];
+  if (a) {
+    box.className = 'lb-audio'; box.dataset.aid = a.id;
+    box.innerHTML = cassette(a) + `<div class="k"><b>Nghe em đọc · Listen</b><span style="opacity:.8">${fmt(a.dur)}</span><button class="key play" id="lb-key">${ICON_PLAY}<span>Nghe em đọc</span></button></div>`;
+    document.getElementById('lb-key').addEventListener('click', () => { playAll = false; load(a.id); });
+  } else {
+    box.className = 'lb-audio none'; delete box.dataset.aid;
+    box.innerHTML = `Giọng đọc của em sẽ được cập nhật.<br><span style="opacity:.8">The child's reading will be added soon.</span>`;
+  }
+  updateTape(); syncUI();
+  lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  if (!fromHash) { try { history.replaceState(null, '', '#' + id); } catch(e) {} }
+  document.getElementById('lb-close').focus();
+}
+function closeLb(){
+  lb.classList.remove('open'); document.body.style.overflow = ''; openId = null;
+  try { history.replaceState(null, '', location.pathname + location.search); } catch(e) {}
+  if (lastFocus) lastFocus.focus();
+}
+document.getElementById('pager').addEventListener('click', e => { const b = e.target.closest('[data-pg]'); if (b && openId) showPage(byId[openId], +b.dataset.pg); });
+roomsEl.addEventListener('click', e => {
+  const o = e.target.closest('[data-open]'); if (o) { openLb(o.dataset.open); return; }
+  const pl = e.target.closest('[data-play]'); if (pl) { playAll = false; load(pl.dataset.play); }
+});
+document.getElementById('lb-close').addEventListener('click', closeLb);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
+lbImg.addEventListener('click', e => {
+  const r = lbImg.getBoundingClientRect();
+  if (!lbImg.classList.contains('zoom')) {
+    lbImg.style.setProperty('--ox', ((e.clientX - r.left) / r.width * 100) + '%');
+    lbImg.style.setProperty('--oy', ((e.clientY - r.top) / r.height * 100) + '%');
+  }
+  lbImg.classList.toggle('zoom');
+});
+/* ---------- Chỉ xem: hạn chế lưu ảnh, kéo thả, lưu trang ---------- */
+const guarded = 'img, svg, .frame-btn, .tape-btn, .bay, .lb-img, .deck, #lb-audio';
+document.addEventListener('contextmenu', e => { if (e.target.closest(guarded)) e.preventDefault(); });
+document.addEventListener('dragstart', e => { if (e.target.closest(guarded)) e.preventDefault(); });
+document.querySelectorAll('img').forEach(i => i.setAttribute('draggable', 'false'));
+new MutationObserver(() => document.querySelectorAll('img:not([draggable])').forEach(i => i.setAttribute('draggable', 'false'))).observe(document.body, { childList: true, subtree: true });
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && ['s','p'].includes(e.key.toLowerCase())) e.preventDefault(); });
+
+function fromHash(){ const h = location.hash.slice(1); if (h && byId[h]) openLb(h, true); }
+window.addEventListener('hashchange', fromHash);
+fromHash();
+</script>
+</body>
+</html>
