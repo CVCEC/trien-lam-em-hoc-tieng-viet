@@ -10,31 +10,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap&subset=vietnamese" rel="stylesheet">
+<link rel="stylesheet" href="https://mau.cvcec.org/v1/cvcec-chung.css">
+<script src="https://mau.cvcec.org/v1/cvcec-chung.js" defer></script>
 <style>
-:root{--be:#F4F0EA;--ch:#3A3B3C;--straw:#DDAA55;--wood:#C68B59;--wood-d:#9E683C;--mute:#7a6a58;--green:#DCE8D2;--green-d:#4E6B3E;--peach:#F6D9CC}
+/* Màu thương hiệu & phông: trỏ sang bộ mẫu chung "Làng Trâu Con" (góc trienlam). Màu chức năng (--green, --green-d, --peach, máy cát-xét, tường, kệ) giữ trong trang. */
+:root{--be:var(--ttv-nen);--ch:var(--ttv-chu);--straw:var(--ttv-goc);--wood:var(--ttv-goc-dam);--wood-d:var(--ttv-goc-dam);--mute:var(--ttv-chu-phu);--green:#DCE8D2;--green-d:#4E6B3E;--peach:#F6D9CC}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{margin:0}
-body{font-family:'Nunito',system-ui,sans-serif;color:var(--ch);background:var(--be);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--ttv-phong);color:var(--ch);background:var(--be);line-height:1.6;-webkit-font-smoothing:antialiased}
 .en{color:var(--mute)}
 button{font:inherit}
-.brandbar{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1200px;margin:0 auto;padding:14px 20px 0}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;border-radius:14px}
-.logo .logo-trau{width:64px;height:auto;flex:none}
-.logo .logo-chu{height:68px;width:auto;display:block}
-.logo:focus-visible{outline:3px solid var(--straw);outline-offset:4px}
-.tag{font-size:13px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--wood-d);background:#fbefd9;border:2px solid var(--straw);border-radius:999px;padding:6px 12px;white-space:nowrap}
-.hero{text-align:center;padding:20px 20px 6px}
-.kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--wood-d);background:#fff8ec;border:1px solid #ecd9b8;border-radius:999px;padding:4px 14px}
+.hero{text-align:center;padding:28px 20px 120px}
+.kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--wood-d);background:var(--ttv-nen);border:1px solid var(--ttv-vien);border-radius:999px;padding:4px 14px}
+h1,.listen-head h2,.room-head h2,.shelf h3,.label h3,.lb-side h3,.terms-box h2{font-family:var(--ttv-phong-tieu-de)}
 h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;margin:12px 0 2px;line-height:1.12}
 .h1-en{font-size:clamp(17px,2.3vw,21px);font-weight:600;color:var(--mute);margin:0}
 .intro{max-width:680px;margin:16px auto 0;font-size:17px}
 .intro .en{display:block;font-size:15px;margin-top:4px}
 .roomnav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:980px;margin:22px auto 0;padding:0 16px}
-.roomnav a{border:1.5px solid #e2cfae;background:#fffdf9;color:var(--ch);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14.5px;text-decoration:none}
-.roomnav a:hover{background:#fbefd9}
+.roomnav a{border:1.5px solid var(--ttv-vien);background:var(--ttv-the);color:var(--ch);border-radius:999px;padding:6px 14px;font-weight:700;font-size:14.5px;text-decoration:none}
+.roomnav a:hover{background:var(--ttv-goc-nhat)}
 .roomnav a.tape{background:var(--ch);color:#fff;border-color:var(--ch)}
-.roomnav a:focus-visible{outline:3px solid var(--straw);outline-offset:2px}
+.roomnav a:focus-visible{outline:3px solid var(--ttv-chu);outline-offset:2px}
 
 /* ---------- Phòng nghe: máy cát-xét ---------- */
 .listen{max-width:1100px;margin:38px auto 0;padding:0 16px}
@@ -49,7 +47,7 @@ h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;margin:12px 0 2px;line-heigh
 .deck-handle{position:absolute;left:50%;top:-22px;transform:translateX(-50%);width:46%;height:30px;border:7px solid #3d3e40;border-bottom:0;border-radius:18px 18px 0 0}
 .deck-top{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#e9dcc6;padding:0 8px 10px}
 .deck-brand{font-weight:900;letter-spacing:2px;font-size:13px;text-transform:uppercase;opacity:.85}
-.deck-brand b{color:var(--straw)}
+.deck-brand b{color:#DDAA55}
 .led{width:10px;height:10px;border-radius:50%;background:#5b3a2a;box-shadow:inset 0 0 2px rgba(0,0,0,.6)}
 .deck.playing .led{background:#ff6b4a;box-shadow:0 0 8px #ff6b4a}
 .deck-body{display:grid;grid-template-columns:150px minmax(0,1fr) 150px;gap:16px;align-items:center}
@@ -66,10 +64,10 @@ h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;margin:12px 0 2px;line-heigh
 .key:active,.key[aria-pressed="true"]{transform:translateY(3px);box-shadow:0 1px 0 #8d8d8d,0 2px 4px rgba(0,0,0,.4)}
 .key.play{background:linear-gradient(#f0c46e,#d79c3f);box-shadow:0 4px 0 #9a6a22,0 5px 8px rgba(0,0,0,.4)}
 .key.play:active,.key.play[aria-pressed="true"]{box-shadow:0 1px 0 #9a6a22,0 2px 4px rgba(0,0,0,.4)}
-.key.all{background:linear-gradient(#e7b38a,#c68b59);color:#fff;box-shadow:0 4px 0 #7f5531,0 5px 8px rgba(0,0,0,.4)}
-.key.all[aria-pressed="true"]{box-shadow:0 1px 0 #7f5531,0 2px 4px rgba(0,0,0,.4)}
+.key.all{background:linear-gradient(#9A673B,#7E5230);color:#fff;box-shadow:0 4px 0 #5C3B20,0 5px 8px rgba(0,0,0,.4)}
+.key.all[aria-pressed="true"]{box-shadow:0 1px 0 #5C3B20,0 2px 4px rgba(0,0,0,.4)}
 .key svg{width:16px;height:16px}
-.key:focus-visible{outline:3px solid var(--straw);outline-offset:3px}
+.key:focus-visible{outline:3px solid var(--ttv-chu);outline-offset:3px}
 
 .shelf{margin:30px auto 0;max-width:1100px}
 .shelf h3{text-align:center;margin:0 0 4px;font-size:18px;font-weight:800}
@@ -78,7 +76,7 @@ h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;margin:12px 0 2px;line-heigh
 .shelf-board{height:16px;background:linear-gradient(#c68b59,#9e683c);border-radius:0 0 10px 10px;box-shadow:0 8px 14px -8px rgba(60,38,18,.6)}
 .tape-btn{border:0;background:none;padding:0;cursor:pointer;text-align:center;color:var(--ch);transition:transform .2s ease}
 .tape-btn:hover{transform:translateY(-4px) rotate(-1deg)}
-.tape-btn:focus-visible{outline:3px solid var(--straw);outline-offset:4px;border-radius:12px}
+.tape-btn:focus-visible{outline:3px solid var(--ttv-chu);outline-offset:4px;border-radius:12px}
 .tape-btn svg{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 6px rgba(60,38,18,.28))}
 .tape-btn .cap{display:block;font-size:12.5px;color:var(--mute);margin-top:6px;font-weight:700}
 .tape-btn.loaded{opacity:.45}
@@ -103,27 +101,26 @@ section.room{margin-top:52px;scroll-margin-top:10px}
 .spot{position:absolute;top:0;left:50%;width:150%;height:110%;transform:translateX(-50%);background:radial-gradient(closest-side at 50% 34%,rgba(255,244,214,.7),rgba(255,244,214,0));pointer-events:none}
 .frame-btn{position:relative;display:block;border:0;padding:0;background:none;cursor:zoom-in;width:100%;border-radius:2px;box-shadow:0 16px 26px -12px rgba(60,38,18,.45),0 4px 8px rgba(60,38,18,.16);transition:transform .25s ease}
 .frame-btn:hover{transform:translateY(-3px)}
-.frame-btn:focus-visible{outline:3px solid var(--straw);outline-offset:6px}
+.frame-btn:focus-visible{outline:3px solid var(--ttv-chu);outline-offset:6px}
 .frame-btn img{display:block;width:100%;height:auto}
-.label{position:relative;margin-top:20px;background:#fffdf9;border:1px solid #e8dfd1;border-radius:6px;padding:12px 15px 13px;width:min(320px,100%);box-shadow:0 2px 4px rgba(60,38,18,.08)}
+.label{position:relative;margin-top:20px;background:var(--ttv-the);border:1px solid var(--ttv-vien);border-radius:6px;padding:12px 15px 13px;width:min(320px,100%);box-shadow:0 2px 4px rgba(60,38,18,.08)}
 .label h3{margin:0;font-size:19px;font-weight:800;line-height:1.25}
 .label .t-en{margin:0 0 6px;color:var(--mute);font-weight:600;font-size:14px;font-style:italic}
 .label .when{margin:0;font-size:14px;color:var(--mute)}
 .vans{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 0}
-.van-chip{font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:#fbefd9;color:#7b5520;border:1px solid #efd8ae}
+.van-chip{font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--ttv-goc-nhat);color:var(--ttv-goc-dam);border:1px solid var(--ttv-vien)}
 .label-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .btn{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14.5px;color:#fff;background:var(--wood);border:0;border-radius:999px;padding:8px 15px;cursor:pointer;text-decoration:none}
-.btn:hover{background:var(--wood-d)}
-.btn.ghost{background:#fffdf9;color:var(--wood-d);border:1.5px solid #e2cfae}
-.btn.ghost:hover{background:#fbefd9}
-.btn:focus-visible{outline:3px solid var(--straw);outline-offset:3px}
+.btn:hover{background:var(--ttv-chu)}
+.btn.ghost{background:var(--ttv-the);color:var(--wood-d);border:1.5px solid var(--ttv-vien)}
+.btn.ghost:hover{background:var(--ttv-goc-nhat)}
+.btn:focus-visible{outline:3px solid var(--ttv-chu);outline-offset:3px}
 .btn svg{width:15px;height:15px;flex:none}
 .base{height:18px;background:linear-gradient(#8c5e37,#6e4828);border-top:3px solid #b07a4b}
 
 .note{max-width:740px;margin:44px auto 0;padding:0 20px;text-align:center;font-size:15.5px}
-footer{text-align:center;padding:30px 20px 44px;font-size:14px;color:#6b5d4f}
-footer .org{font-weight:800;color:var(--ch)}
-.copy{margin-top:14px;font-size:11.5px;color:rgba(58,59,60,.4)}
+.org-line{text-align:center;padding:30px 20px 0;font-size:14px;color:var(--ttv-chu-phu)}
+.org-line .org{font-weight:800;color:var(--ch)}
 
 .lb{position:fixed;inset:0;z-index:50;background:rgba(36,28,20,.84);display:none;align-items:center;justify-content:center;padding:16px}
 .lb.open{display:flex}
@@ -132,21 +129,21 @@ footer .org{font-weight:800;color:var(--ch)}
 .lb-img img{max-width:100%;max-height:calc(100vh - 110px);height:auto;display:block;cursor:zoom-in;transition:transform .3s ease;transform-origin:var(--ox,50%) var(--oy,50%)}
 .lb-img img.zoom{transform:scale(2.1);cursor:zoom-out}
 .pager{display:flex;gap:8px}
-.pager button{border:1.5px solid #e2cfae;background:#fffdf9;border-radius:999px;padding:4px 12px;font-weight:700;font-size:13.5px;cursor:pointer;color:var(--ch)}
+.pager button{border:1.5px solid var(--ttv-vien);background:var(--ttv-the);border-radius:999px;padding:4px 12px;font-weight:700;font-size:13.5px;cursor:pointer;color:var(--ch)}
 .pager button[aria-pressed="true"]{background:var(--wood);color:#fff;border-color:var(--wood)}
 .lb-side{padding:22px 22px 24px;position:relative}
 .lb-side h3{margin:0;font-size:24px;font-weight:800;padding-right:44px;line-height:1.25}
 .lb-side .t-en{margin:0 0 4px;color:var(--mute);font-weight:600;font-style:italic}
 .lb-when{margin:0;font-size:15px;color:var(--mute)}
-.close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1px solid #dccfbd;background:#fff;font-size:22px;line-height:1;cursor:pointer;color:var(--ch)}
-.close:focus-visible{outline:3px solid var(--straw)}
+.close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1px solid var(--ttv-vien);background:var(--ttv-the);font-size:22px;line-height:1;cursor:pointer;color:var(--ch)}
+.close:focus-visible{outline:3px solid var(--ttv-chu)}
 .lines{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
-.lines li{background:#fffdf9;border:1px solid #e8dfd1;border-radius:10px;padding:9px 12px;display:grid;grid-template-columns:auto 1fr;gap:1px 12px;align-items:center}
+.lines li{background:var(--ttv-the);border:1px solid var(--ttv-vien);border-radius:10px;padding:9px 12px;display:grid;grid-template-columns:auto 1fr;gap:1px 12px;align-items:center}
 .lines li.novan{grid-template-columns:1fr}
-.lines .v{grid-row:span 2;font-weight:800;font-size:17px;background:#fbefd9;color:#7b5520;border-radius:8px;padding:3px 10px;text-align:center;min-width:48px}
+.lines .v{grid-row:span 2;font-weight:800;font-size:17px;background:var(--ttv-goc-nhat);color:var(--ttv-goc-dam);border-radius:8px;padding:3px 10px;text-align:center;min-width:48px}
 .lines .vi{font-weight:700;font-size:17px}
 .lines .e{color:var(--mute);font-size:14px}
-.tom{margin:14px 0 0;background:#fffdf9;border:1px solid #e8dfd1;border-radius:10px;padding:12px 14px;font-size:16px}
+.tom{margin:14px 0 0;background:var(--ttv-the);border:1px solid var(--ttv-vien);border-radius:10px;padding:12px 14px;font-size:16px}
 .tom .en{display:block;margin-top:6px;font-size:14.5px}
 .tom small{display:block;font-size:12.5px;color:var(--mute);margin-bottom:4px;font-weight:700;letter-spacing:.3px}
 .lb-audio{margin-top:14px;background:#2f3031;border-radius:14px;padding:12px;color:#e9dcc6;font-size:14.5px;display:flex;align-items:center;gap:12px}
@@ -155,16 +152,18 @@ footer .org{font-weight:800;color:var(--ch)}
 .lb-audio .key svg{width:16px;height:16px}
 .lb-audio .k{display:flex;flex-direction:column;gap:6px;min-width:0}
 .lb-audio .key{height:40px;min-width:0;align-self:flex-start}
-.hint{margin-top:12px;font-size:13px;color:#8a7a68}
+.hint{margin-top:12px;font-size:13px;color:var(--ttv-chu-phu)}
+.lb-terms{margin:8px 0 0;font-size:13px;line-height:1.45}
+.lb-terms a{display:inline-block;padding:6px 0;min-height:44px;color:var(--ttv-goc-dam);font-weight:700}
 .terms{max-width:860px;margin:46px auto 0;padding:0 16px}
-.terms-box{background:#fffdf9;border:1px solid #e8dfd1;border-left:6px solid var(--straw);border-radius:12px;padding:18px 20px}
+.terms-box{background:var(--ttv-the);border:1px solid var(--ttv-vien);border-left:6px solid var(--straw);border-radius:12px;padding:18px 20px}
 .terms-box h2{margin:0 0 6px;font-size:18px;font-weight:800}
 .terms-box h2 .en{font-weight:600}
 .terms-box p{margin:8px 0 0;font-size:15px}
 .terms-box p.en{font-size:14px}
 .terms-box a{color:var(--wood-d);font-weight:700}
-.terms-box hr{border:0;border-top:1px solid #eee3d2;margin:12px 0}
-.notice{display:inline-block;text-decoration:none;margin:14px auto 0;font-size:13.5px;background:#fbefd9;color:#7b5520;border:1px solid #efd8ae;border-radius:999px;padding:5px 14px;font-weight:700}
+.terms-box hr{border:0;border-top:1px solid var(--ttv-vien);margin:12px 0}
+.notice{display:inline-block;text-decoration:none;margin:14px auto 0;font-size:13.5px;background:var(--ttv-goc-nhat);color:var(--ttv-goc-dam);border:1px solid var(--ttv-vien);border-radius:999px;padding:5px 14px;font-weight:700}
 img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .frame-btn,.tape-btn,.bay,.lb-img{-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
 .print-only{display:none}
@@ -173,9 +172,7 @@ img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit
   .lb-card{grid-template-columns:1fr}
   .lb-img{border-radius:14px 14px 0 0}
   .lb-img img{max-height:58vh}
-  .logo .logo-trau{width:50px}
-  .logo .logo-chu{height:54px}
-  .tag{display:none}
+  .hero{padding-bottom:90px}
   .piece{--w:100% !important}
   .deck-body{grid-template-columns:1fr}
   .speaker{display:none}
@@ -188,15 +185,7 @@ img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit
 </style>
 </head>
 <body>
-<div class="brandbar">
-  <a class="logo" href="#" aria-label="Trường Tiếng Việt Của Em">
-    <img class="logo-trau" src="anh/trau-con.png" alt="" width="541" height="640">
-    <img class="logo-chu" src="anh/logo-chu.png" alt="Trường Tiếng Việt Của Em" width="466" height="180">
-  </a>
-  <span class="tag">Triển lãm · 2026</span>
-</div>
-
-<header class="hero">
+<header class="hero ttv-canh">
   <div class="kicker">Triển lãm · Exhibition</div>
   <h1>Triển lãm Em học tiếng Việt</h1>
   <p class="h1-en">Learning Vietnamese: a children's exhibition</p>
@@ -207,7 +196,7 @@ img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit
 
 <nav class="roomnav" id="roomnav" aria-label="Các gian triển lãm · Rooms"></nav>
 
-<section class="listen" id="phong-nghe" aria-labelledby="listen-title">
+<section class="listen" id="phong-nghe" data-ttv-nen="don-gian" aria-labelledby="listen-title">
   <div class="listen-head">
     <div class="room-no">Phòng nghe chung · Listening room</div>
     <h2 id="listen-title">Máy cát-xét của lớp</h2>
@@ -243,14 +232,14 @@ img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit
   </div>
 </section>
 
-<div id="rooms"></div>
+<div id="rooms" data-ttv-nen="don-gian"></div>
 
 <p class="note">Chạm vào bức tranh để xem gần từng nét chữ, đọc bản dịch tiếng Anh và nghe các em đọc.<br>
   <span class="en">Tap a frame to look closely at the handwriting, read the English translation and hear the children read.</span></p>
 
 <section class="terms" id="dieu-khoan" aria-labelledby="terms-title">
   <div class="terms-box">
-    <h2 id="terms-title">Lưu ý về sử dụng tài liệu <span class="en">· Terms of use</span></h2>
+    <h2 id="terms-title" tabindex="-1">Lưu ý về sử dụng tài liệu <span class="en">· Terms of use</span></h2>
     <p>Các trang vở và bản ghi âm trong triển lãm này được đăng tải nhằm mục đích quan sát, và có thể được dùng cho nghiên cứu về tiếng Việt như một ngoại ngữ. Các nhà nghiên cứu ngôn ngữ muốn tìm hiểu thêm xin liên hệ <a href="mailto:contact@cvcec.org">contact@cvcec.org</a>.</p>
     <p>Triển lãm hoàn toàn <b>phi lợi nhuận</b>. Tài liệu <b>không được</b> sử dụng vào mục đích thương mại, và không được sao chép, tải xuống hay chia sẻ lại dưới bất kỳ hình thức nào khi chưa có sự đồng ý bằng văn bản của CVCEC.</p>
     <hr>
@@ -259,17 +248,17 @@ img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit
   </div>
 </section>
 
-<footer>
+<div class="org-line">
   <div>Một hoạt động của <span class="org">Trường Tiếng Việt Của Em</span></div>
   <div>Canada Vietnam Cultural &amp; Educational Council (CVCEC)</div>
-  <div class="copy">Copyrighted by CVCEC Trường Tiếng Việt Của Em 2026</div>
-</footer>
+</div>
+<footer data-ttv-chan></footer>
 
 <audio id="player" preload="none" controlsList="nodownload noplaybackrate" disableRemotePlayback></audio>
 <div class="print-only">Triển lãm Em học tiếng Việt chỉ để xem trực tuyến tại trienlam.cvcec.org.<br>This exhibition is for online viewing only.</div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title">
-  <div class="lb-card">
+  <div class="lb-card" data-ttv-nen="don-gian">
     <div class="lb-img"><img id="lb-img" alt=""><div class="pager" id="pager"></div></div>
     <div class="lb-side">
       <button class="close" id="lb-close" aria-label="Đóng · Close">&times;</button>
@@ -279,6 +268,7 @@ img,svg{-webkit-user-drag:none;user-select:none;-webkit-user-select:none;-webkit
       <div id="lb-body"></div>
       <div class="lb-audio" id="lb-audio"></div>
       <p class="hint">Chạm vào ảnh để phóng to · Tap the page to zoom</p>
+      <p class="lb-terms"><a href="#dieu-khoan" id="lb-terms">Chỉ để xem, phi lợi nhuận – không sao chép, không chia sẻ. Xem Lưu ý về sử dụng tài liệu <span class="en" lang="en">· View only, non-profit – no copying or sharing. See Terms of use</span></a></p>
     </div>
   </div>
 </div>
@@ -355,7 +345,7 @@ DATA.audios.forEach(a => {
 const player = document.getElementById('player');
 let current = null, playAll = false;
 function emptyBay(){
-  bay.innerHTML = `<svg viewBox="0 0 240 152" aria-hidden="true"><rect x="2" y="2" width="236" height="148" rx="12" fill="#232425" stroke="#3a3b3c" stroke-width="2" stroke-dasharray="6 6"/><text x="120" y="72" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#8a8a8a">Ngăn băng trống</text><text x="120" y="92" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="600" font-size="11" fill="#6f6f6f">Chọn một cuộn băng trên kệ</text></svg>`;
+  bay.innerHTML = `<svg viewBox="0 0 240 152" aria-hidden="true"><rect x="2" y="2" width="236" height="148" rx="12" fill="#232425" stroke="#3a3b3c" stroke-width="2" stroke-dasharray="6 6"/><text x="120" y="72" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="13" fill="#9A9A9A">Ngăn băng trống</text><text x="120" y="92" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="600" font-size="11" fill="#8F8F8F">Chọn một cuộn băng trên kệ</text></svg>`;
 }
 emptyBay();
 function updateTape(){
@@ -521,6 +511,12 @@ roomsEl.addEventListener('click', e => {
   const pl = e.target.closest('[data-play]'); if (pl) { playAll = false; load(pl.dataset.play); }
 });
 document.getElementById('lb-close').addEventListener('click', closeLb);
+document.getElementById('lb-terms').addEventListener('click', e => {
+  e.preventDefault(); lastFocus = null; closeLb();
+  const t = document.getElementById('dieu-khoan');
+  t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('terms-title').focus({ preventScroll: true });
+});
 lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLb(); });
 lbImg.addEventListener('click', e => {
